@@ -122,40 +122,50 @@ puts
 puts Time.now.to_a
 
 # Q21) Print prime numbers from the given array.
-require 'prime'
-def str_traverse(arr)
-  arr.each do |num|
-    if Prime.prime?(num)
-      puts "#{num} is a prime number"
-    else
-      puts "#{num} is not a prime number"
-    end
-  end
+def check_prime(arr)
+arr.each{|num|
+flag = false
+if num > 1
+for i in 2..num-1
+if num % i == 0
+flag = true
+break
 end
-str_traverse([2, 6, 3, 8, 4, 9, 1])
+end
+if flag == false
+puts "#{num} is a Prime Number"
+end
+end
+}
+end
+check_prime([1, 2, 3, 4, 5, 6, 7, 8, 9])
 puts
 
 # 22) Write a program for fuel indication.
 # Ex: 0 -> Out of fuel, 1-10 -> Low, Please fill, 11-30 -> Good for now, 31-50 -> Almost Full, > 50 -> Full.
-input = 24
-case input
-when 0
-  puts 'Out of fuel'
-when (1..10)
-  puts 'Low, Please fill'
-when (11..30)
-  puts 'Good for now'
-when (31..50)
-  puts 'Almost Full'
-when 50
-  puts 'Full'
+input = -2
+if input.negative?
+puts 'Invalid input, Please insert a positive input'
+elsif input.zero?
+puts 'Out of Fuel'
+elsif input == (1..10)
+puts 'Low, Please fill'
+elsif input == (11..30)
+puts 'Good for now'
+elsif input == (31..50)
+puts 'Almost Full'
+elsif input == 50
+puts 'Full'
 end
 puts
 
 # Q23) Swap the given values(without the third variable)
 def swap_num(rust, boost)
-  rust, boost = boost, rust
-  [rust, boost]
+  rust = rust + boost
+  boost = rust - boost
+  rust = rust - boost
+  puts "The value of rust after swap : #{rust}"
+  puts "The value of boost after swap : #{boost}"
 end
 swap_num(3, 6)
 puts
