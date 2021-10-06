@@ -123,41 +123,41 @@ puts Time.now.to_a
 
 # Q21) Print prime numbers from the given array.
 def check_prime(arr)
-arr.each{|num|
-flag = false
-if num > 1
-for i in 2..num-1
-if num % i == 0
-flag = true
-break
-end
-end
-if flag == false
-puts "#{num} is a Prime Number"
-end
-end
-}
+  arr.each { |num|
+    flag = false
+    if num > 1 
+      for i in 2..num - 1
+        if (num % i).zero?
+          flag = true
+          break
+        end
+    end
+    unless flag
+      puts "#{num} is a Prime Number"
+    end
+    end
+  }
 end
 check_prime([1, 2, 3, 4, 5, 6, 7, 8, 9])
 puts
 
 # 22) Write a program for fuel indication.
 # Ex: 0 -> Out of fuel, 1-10 -> Low, Please fill, 11-30 -> Good for now, 31-50 -> Almost Full, > 50 -> Full.
-input = -2
-if input.negative?
-puts 'Invalid input, Please insert a positive input'
-elsif input.zero?
-puts 'Out of Fuel'
-elsif input == (1..10)
-puts 'Low, Please fill'
-elsif input == (11..30)
-puts 'Good for now'
-elsif input == (31..50)
-puts 'Almost Full'
-elsif input == 50
-puts 'Full'
+input = -40
+case input
+when 0
+  puts 'Out of fuel'
+when (1..10)
+  puts 'Low, Please fill'
+when (11..30)
+  puts 'Good for now'
+when (31..50)
+  puts 'Almost Full'
+when 50
+  puts 'Full'
+else
+  puts 'Plz Enter Valid input'
 end
-puts
 
 # Q23) Swap the given values(without the third variable)
 def swap_num(rust, boost)
